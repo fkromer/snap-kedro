@@ -1,0 +1,65 @@
+name: kedro
+base: core18
+version: latest
+summary: Kedro helps you build production-ready data and analytics pipelines.
+description: |
+    Kedro is a development workflow framework that implements software
+    engineering best-practice for data pipelines with an eye towards
+    productionising machine learning models.
+
+    This snap bundles kedro v0.15.9 with the latest available official as well
+    as inofficial kedro plugin versions.
+
+    - kedro-argo 0.0.8
+    - kedro-docker 0.1.1
+
+grade: devel
+confinement: devmode
+
+architectures:
+  - build-on: [amd64]
+
+apps:
+  kedro:
+    command: kedro
+    plugs:
+      - home
+      - network
+      - network-bind
+      - docker
+    environment: {
+      LANG: C.UTF-8,
+      LC_ALL: C.UTF-8
+    }
+
+parts:
+  kedro:
+    plugin: python
+    python-version: python3
+    python-packages:
+      - kedro==0.15.9
+  kedro-argo:
+    plugin: python
+    python-version: python3
+    python-packages:
+      - kedro-argo==0.0.8
+  kedro-docker:
+    plugin: python
+    python-version: python3
+    python-packages:
+      - kedro-docker==0.1.1
+  #kedro-airflow:
+  #  plugin: python
+  #  python-version: python3
+  #  python-packages:
+  #    - kedro-airflow==0.2.2
+  #kedro-viz:
+  #  plugin: python
+  #  python-version: python3
+  #  python-packages:
+  #    - kedro-viz==3.2.0
+  #kedro-static-viz:
+  #  plugin: python
+  #  python-version: python3
+  #  python-packages:
+  #    - kedro-static-viz==0.1.3
