@@ -7,8 +7,8 @@ description: |
     engineering best-practice for data pipelines with an eye towards
     productionising machine learning models.
 
-    This snap bundles kedro v0.15.9 with the latest available official as well
-    as inofficial kedro plugin versions.
+    This snap bundles Kedro v0.15.9 with the latest available official as well
+    as inofficial Kedro plugin versions.
 
     - kedro-argo 0.0.8
     - kedro-docker 0.1.1
